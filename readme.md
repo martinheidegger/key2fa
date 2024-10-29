@@ -1,6 +1,7 @@
 ---
 theme: default
 paginate: true
+mdc: true
 defaults:
   hideInToc: true
   layout: center
@@ -35,6 +36,64 @@ hideInToc: false
 
 ---
 hideInToc: false
+---
+
+![](./images/yubikeys-1024x417-515378429.jpg){width=400px lazy}
+
+- Hardware Device
+- Cost: between 4000円~25000円
+
+---
+
+<div class="flex flex-row items-center gap-9">
+
+![](./images/Thetis_FIDO2_Security_Key_type_C.webp){width=300px lazy}
+
+![](./images/fido-certified.png){width=100px lazy}
+
+</div>
+
+- Different makers
+- Certified by a group
+
+<!-- Make it yourself: https://www.wolfwithsword.com/hardware-diy-security-key/ -->
+
+---
+
+<div class="flex flex-row items-center gap-9">
+
+![](./images/hid_Crescendo3000.jpg){width=300px lazy}
+
+![](./images/vido-css-fingerprint-key.jpg){width=300px lazy}
+
+</div>
+
+- Different shapes
+- Some with bio authenication
+
+---
+
+![](./images/makerdiary_key_internals.png){width=600px lazy}
+
+- Simple hardware
+- [Protocol](https://fidoalliance.org/specs/FDO/FIDO-Device-Onboard-PS-v1.1-20220419/FIDO-Device-Onboard-PS-v1.1-20220419.html) supports basic cryptographic primitives
+
+---
+
+## Crypto features
+
+- Attestion
+
+    _Verify that its made by a certified producer_
+
+- Signatures
+
+    _Create a signature for a data and offer a public key to verify it against._
+
+- Encryption
+
+    _Encrypt/Decrypt data. - not recommended._
+
 ---
 
 #  When and where are they useful?
