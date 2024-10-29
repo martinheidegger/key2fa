@@ -1,0 +1,8 @@
+{
+    "editor.tabSize": 2,
+    "slidev.include": [
+        "**/slides.md",
+        "readme.md"
+    ],
+    "slidev.port": 3030,
+}
