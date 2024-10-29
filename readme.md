@@ -8,7 +8,7 @@ defaults:
 
 # Security Keys & WebAuthN
 
-By Tillmann Weidinger [@Crabnebula](https://crabnebula.dev/)<br/>
+by Tillmann Weidinger [@Crabnebula](https://crabnebula.dev/)<br/>
 and Martin Heidegger [@OWDDM](https://owddm.com)
 <style>
 footer {
