@@ -10,6 +10,16 @@ defaults:
 
 By Tillmann Weidinger [@Crabnebula](https://crabnebula.dev/)<br/>
 and Martin Heidegger [@OWDDM](https://owddm.com)
+<style>
+footer {
+  position: absolute;
+  bottom: 2em;
+  right: 2em;
+}
+</style>
+<footer class="text-slate-300">
+Kyoto, 2024/11/16
+</footer>
 
 ---
 
