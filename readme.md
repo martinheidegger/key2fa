@@ -114,7 +114,7 @@ layout: full
 layout: full
 ---
 
-```ts {monaco-run}
+```ts {monaco-run} {autorun:false}
 const credential = await navigator.credentials.create({
     publicKey: {
       rp: { name: "Github Pages", id: "martinheidegger.github.io" },
