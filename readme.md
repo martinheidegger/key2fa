@@ -115,23 +115,17 @@ layout: full
 ---
 
 ```ts {monaco-run}
-const publicKeyCredentialCreationOptions = {
-    challenge: Uint8Array.from(
-        "UZSL85T9AFC", c => c.charCodeAt(0)),
-    rp: {
-        name: "Github Pages",
-        id: "martinheidegger.github.io",
-    },
-    user: {
-        id: Uint8Array.from(
-            "UZSL85T9AFC", c => c.charCodeAt(0)),
-        name: "lee@webauthn.guide",
-        displayName: "Lee",
-    },
-    pubKeyCredParams: [{alg: -7, type: "public-key"}],
-};
 const credential = await navigator.credentials.create({
-    publicKey: publicKeyCredentialCreationOptions
+    publicKey: {
+      challenge: Uint8Array.from("UZSL85T9AFC", c => c.charCodeAt(0)),
+      rp: { name: "Github Pages", id: "martinheidegger.github.io" },
+      user: {
+          id: Uint8Array.from("UZSL85T9AFC", c => c.charCodeAt(0)),
+          name: "info@owddm.com",
+          displayName: "OWDDM",
+      },
+      pubKeyCredParams: [{alg: -7, type: "public-key"}],
+  }
 });
 console.log(credential)
 ```
