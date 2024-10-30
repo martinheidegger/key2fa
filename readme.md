@@ -129,11 +129,6 @@ const publicKeyCredentialCreationOptions = {
         displayName: "Lee",
     },
     pubKeyCredParams: [{alg: -7, type: "public-key"}],
-    authenticatorSelection: {
-        authenticatorAttachment: "cross-platform",
-    },
-    timeout: 60000,
-    attestation: "direct"
 };
 const credential = await navigator.credentials.create({
     publicKey: publicKeyCredentialCreationOptions
