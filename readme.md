@@ -117,7 +117,7 @@ layout: full
 ```ts {monaco-run}
 const credential = await navigator.credentials.create({
     publicKey: {
-      rp: { name: "Github Pages", id: "github.io" },
+      rp: { name: "Github Pages", id: "martinheidegger.github.io" },
       challenge: Uint8Array.from("UZSL85T9AFC", c => c.charCodeAt(0)),
       user: {
           id: Uint8Array.from("UZSL85T9AFC", c => c.charCodeAt(0)),
