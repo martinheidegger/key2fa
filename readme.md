@@ -119,8 +119,8 @@ const publicKeyCredentialCreationOptions = {
     challenge: Uint8Array.from(
         "UZSL85T9AFC", c => c.charCodeAt(0)),
     rp: {
-        name: "Duo Security",
-        id: "duosecurity.com",
+        name: "Github Pages",
+        id: "martinheidegger.github.io",
     },
     user: {
         id: Uint8Array.from(
