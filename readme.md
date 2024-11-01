@@ -41,6 +41,7 @@ hideInToc: false
 ![](./images/yubikeys-1024x417-515378429.jpg){width=400px lazy}
 
 - Hardware Device
+- Stores Cryptographic Values
 - Cost: between 4000円~25000円
 
 ---
@@ -84,15 +85,15 @@ hideInToc: false
 
 - Attestion
 
-    _Verify that its made by a certified producer_
+    _Prove that a cryptographic key was generated on the device_
 
 - Signatures
 
-    _Create a signature for a data and offer a public key to verify it against._
+    _Create an asymetric key pair on the device and sign data with it._
 
 - Encryption
 
-    _Encrypt/Decrypt data. - not recommended._
+    _Encrypt or decrypt data with PGP (slow and complicated)_
 
 ---
 
@@ -100,6 +101,25 @@ hideInToc: false
 
 ---
 hideInToc: false
+---
+- You don't want to remember passwords
+- You need something portable to authenticate
+- You have sensitive cryptographic needs
+- You don't want to accidentially leak your credentials
+
+---
+
+# How to handle the devices physically?
+
+---
+hideInToc: false
+---
+
+- Like physical keys
+- Have pairs of keys (backups!)
+- IP(X) ratings
+- Keep them close to your body or safe at home
+
 ---
 
 #  What is WebAuthN?
@@ -312,6 +332,11 @@ hideInToc: false
 ---
 
 #  What is the most common example for using security keys?
+
+- Authentication
+  - SSH
+  - Git
+  - Physical Doors
 
 ---
 hideInToc: false
