@@ -162,10 +162,18 @@ layout: full
 
 ```ts
 .create({...}):
-  PublicKeyCredential // That is what we need
-  | PasswordCredential // ..Maybe later
-  | FederatedCredential // (Still Experimental)
+  PublicKeyCredential
+  | PasswordCredential
+  | FederatedCredential
 ```
+
+<v-clicks>
+
+- ~~PasswordCredential~~ ... maybe later
+- ~~FederatedCredential~~ ... (Still Experimental)
+- **PublicKeyCredential** ... that is what we need!
+
+</v-clicks>
 
 ---
 layout: full
