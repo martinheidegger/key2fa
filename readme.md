@@ -96,12 +96,13 @@ hideInToc: false
     _Encrypt or decrypt data with PGP (slow and complicated)_
 
 ---
+hideInToc: false
+---
 
 #  When and where are they useful?
 
 ---
-hideInToc: false
----
+
 - You don't want to remember passwords
 - You need something portable to authenticate
 - You have sensitive cryptographic needs
