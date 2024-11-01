@@ -103,10 +103,18 @@ hideInToc: false
 
 ---
 
+<v-clicks depth="2">
+
 - You don't want to remember passwords
+    - ... you don't trust yourself to remember 😅
 - You need something portable to authenticate
+    - ... you don't trust the internet 🥸
 - You have sensitive cryptographic needs
+    - ... you need to comply 🫡
 - You don't want to accidentially leak your credentials
+    - ... you are clumsy 🤕
+
+</v-clicks>
 
 ---
 
