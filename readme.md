@@ -114,6 +114,138 @@ layout: full
 layout: full
 ---
 
+## Browser API
+
+<div class="flex w-100p">
+
+```ts
+navigator.credentials.create(...)
+                {...}.get(...)
+                {...}.store(...)
+                {...}.preventSilentAccess()
+```
+
+</div>
+
+---
+layout: full
+---
+
+```ts
+.create({...}):
+  PublicKeyCredential // That is what we need
+  | PasswordCredential // ..Maybe later
+  | FederatedCredential // (Still Experimental)
+```
+
+---
+layout: full
+---
+
+```ts
+PublicKeyCredential: {
+  "type": "public-key"
+  "authenticatorAttachment": "cross-platform",
+  "clientExtensionResults": {},
+  "id": "R3z..(80)..zUQ",
+  "rawId": "R3z..(80)..zUQ",
+  "response": {
+    "attestationObject": "o2N..(296)..HjA",
+    "authenticatorData": "S8g..(256)..HjA",
+    "clientDataJSON": "eyJ..(156)..lfQ",
+    "publicKey": "MFk..(116)..HjA",
+    "publicKeyAlgorithm": -7,
+    "transports": [
+      "ble", "hybrid", "internal", "nfc", "usb"
+    ]
+  }
+}
+
+```
+
+---
+layout: full
+---
+
+### Algorithms
+
+<sub>[IANA Cose Algorithms](https://www.iana.org/assignments/cose/cose.xhtml#algorithms)</sub>
+
+<style>
+  table {
+    font-size: 0.6em;
+  }
+</style>
+
+<div style="top: 8em; left: 0; bottom: 0; right: 0; position: absolute; overflow: scroll; padding: 2em; padding-top: 0;">
+
+| Value | Name                                      | Description                                           |
+|-------|-------------------------------------------|-------------------------------------------------------|
+| -46   | HSS-LMS                                   | HSS/LMS hash-based digital signature                  |
+| -45   | SHAKE256                                  | SHAKE-256 512-bit Hash Value                          |
+| -44   | SHA-512                                   | SHA-2 512-bit Hash                                    |
+| -43   | SHA-384                                   | SHA-2 384-bit Hash                                    |
+| -42   | RSAES-OAEP w/ SHA-512                     | RSAES-OAEP w/ SHA-512                                 |
+| -41   | RSAES-OAEP w/ SHA-256                     | RSAES-OAEP w/ SHA-256                                 |
+| -40   | RSAES-OAEP w/ RFC 8017 default parameters | RSAES-OAEP w/ SHA-1                                   |
+| -39   | PS512                                     | RSASSA-PSS w/ SHA-512                                 |
+| -38   | PS384                                     | RSASSA-PSS w/ SHA-384                                 |
+| -37   | PS256                                     | RSASSA-PSS w/ SHA-256                                 |
+| -36   | ES512                                     | ECDSA w/ SHA-512                                      |
+| -35   | ES384                                     | ECDSA w/ SHA-384                                      |
+| -34   | ECDH-SS + A256KW                          | ECDH SS w/ Concat KDF and AES Key Wrap w/ 256-bit key |
+| -33   | ECDH-SS + A192KW                          | ECDH SS w/ Concat KDF and AES Key Wrap w/ 192-bit key |
+| -32   | ECDH-SS + A128KW                          | ECDH SS w/ Concat KDF and AES Key Wrap w/ 128-bit key |
+| -31   | ECDH-ES + A256KW                          | ECDH ES w/ Concat KDF and AES Key Wrap w/ 256-bit key |
+| -30   | ECDH-ES + A192KW                          | ECDH ES w/ Concat KDF and AES Key Wrap w/ 192-bit key |
+| -29   | ECDH-ES + A128KW                          | ECDH ES w/ Concat KDF and AES Key Wrap w/ 128-bit key |
+| -28   | ECDH-SS + HKDF-512                        | ECDH SS w/ HKDF - generate key directly               |
+| -27   | ECDH-SS + HKDF-256                        | ECDH SS w/ HKDF - generate key directly               |
+| -26   | ECDH-ES + HKDF-512                        | ECDH ES w/ HKDF - generate key directly               |
+| -25   | ECDH-ES + HKDF-256                        | ECDH ES w/ HKDF - generate key directly               |
+| -18   | SHAKE128                                  | SHAKE-128 256-bit Hash Value                          |
+| -17   | SHA-512/256                               | SHA-2 512-bit Hash truncated to 256-bits              |
+| -16   | SHA-256                                   | SHA-2 256-bit Hash                                    |
+| -15   | SHA-256/64                                | SHA-2 256-bit Hash truncated to 64-bits               |
+| -14   | SHA-1                                     | SHA-1 Hash                                            |
+| -13   | direct+HKDF-AES-256                       | Shared secret w/ AES-MAC 256-bit key                  |
+| -12   | direct+HKDF-AES-128                       | Shared secret w/ AES-MAC 128-bit key                  |
+| -11   | direct+HKDF-SHA-512                       | Shared secret w/ HKDF and SHA-512                     |
+| -10   | direct+HKDF-SHA-256                       | Shared secret w/ HKDF and SHA-256                     |
+| -8    | EdDSA                                     | EdDSA                                                 |
+| -7    | ES256                                     | ECDSA w/ SHA-256                                      |
+| -6    | direct                                    | Direct use of CEK                                     |
+| -5    | A256KW                                    | AES Key Wrap w/ 256-bit key                           |
+| -4    | A192KW                                    | AES Key Wrap w/ 192-bit key                           |
+| -3    | A128KW                                    | AES Key Wrap w/ 128-bit key                           |
+| 1     | A128GCM                                   | AES-GCM mode w/ 128-bit key, 128-bit tag              |
+| 2     | A192GCM                                   | AES-GCM mode w/ 192-bit key, 128-bit tag              |
+| 3     | A256GCM                                   | AES-GCM mode w/ 256-bit key, 128-bit tag              |
+| 4     | HMAC 256/64                               | HMAC w/ SHA-256 truncated to 64 bits                  |
+| 5     | HMAC 256/256                              | HMAC w/ SHA-256                                       |
+| 6     | HMAC 384/384                              | HMAC w/ SHA-384                                       |
+| 7     | HMAC 512/512                              | HMAC w/ SHA-512                                       |
+| 10    | AES-CCM-16-64-128                         | AES-CCM mode 128-bit key, 64-bit tag, 13-byte nonce   |
+| 11    | AES-CCM-16-64-256                         | AES-CCM mode 256-bit key, 64-bit tag, 13-byte nonce   |
+| 12    | AES-CCM-64-64-128                         | AES-CCM mode 128-bit key, 64-bit tag, 7-byte nonce    |
+| 13    | AES-CCM-64-64-256                         | AES-CCM mode 256-bit key, 64-bit tag, 7-byte nonce    |
+| 14    | AES-MAC 128/64                            | AES-MAC 128-bit key, 64-bit tag                       |
+| 15    | AES-MAC 256/64                            | AES-MAC 256-bit key, 64-bit tag                       |
+| 16-23 | Unassigned                                |                                                       |
+| 24    | ChaCha20/Poly1305                         | ChaCha20/Poly1305 w/ 256-bit key, 128-bit tag         |
+| 25    | AES-MAC 128/128                           | AES-MAC 128-bit key, 128-bit tag                      |
+| 26    | AES-MAC 256/128                           | AES-MAC 256-bit key, 128-bit tag                      |
+| 30    | AES-CCM-16-128-128                        | AES-CCM mode 128-bit key, 128-bit tag, 13-byte nonce  |
+| 31    | AES-CCM-16-128-256                        | AES-CCM mode 256-bit key, 128-bit tag, 13-byte nonce  |
+| 32    | AES-CCM-64-128-128                        | AES-CCM mode 128-bit key, 128-bit tag, 7-byte nonce   |
+| 33    | AES-CCM-64-128-256                        | AES-CCM mode 256-bit key, 128-bit tag, 7-byte nonce   |
+
+</div>
+
+---
+layout: full
+---
+
 ```ts {monaco-run} {autorun:false}
 const credential = await navigator.credentials.create({
     publicKey: {
