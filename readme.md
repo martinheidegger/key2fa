@@ -176,8 +176,105 @@ layout: full
 </v-clicks>
 
 ---
+layout: iframe
+url: https://martinheidegger.github.io/crypto-playground/index.html#/asymetric
+---
+
+---
 layout: full
 ---
+
+<style>
+.slidev-runner-output {
+  font-size: 8px !important;
+  line-height: 9px !important;
+  overflow: scroll;
+}
+</style>
+
+```ts {monaco-run} {autorun:false}
+const credential = await navigator.credentials.create({
+    publicKey: {
+      rp: { name: "Github Pages" },
+      challenge: Uint8Array.from("UZSL85T9AFC", c => c.charCodeAt(0)),
+      user: {
+          id: Uint8Array.from("UZSL85T9AFC", c => c.charCodeAt(0)),
+          name: "info@owddm.com",
+          displayName: "OWDDM",
+      },
+      pubKeyCredParams: [{alg: -7, type: "public-key"}],
+  }
+});
+console.log(credential)
+```
+
+---
+layout: center
+---
+
+```ts
+  rp: { name: "Github Pages", id: "martinheidegger.github.io" },
+```
+
+<v-clicks>
+
+<div class="flex flex-row items-center gap-4 p-5 text-lg">
+  <ruby>Public<rt>everyone can know this</rt></ruby>
+  <ruby>Key<rt>binary data</rt></ruby>
+  <ruby>Credential<rt>to verify</rt></ruby>
+  <ruby>Rp <rt><em>of the</em> <abbr title="A Relying Party implementation typically consists of both some client-side script that invokes the Web Authentication API in the client, and a server-side component that executes the Relying Party operations and other application logic. Communication between the two components MUST use HTTPS or equivalent transport security, but is otherwise beyond the scope of this specification.">relying party</abbr></rt></ruby>
+  <ruby>Entity<rt>(you can pass this around)</rt></ruby>
+</div>
+
+</v-clicks>
+
+<v-clicks>
+
+```ts
+interface PublicKeyCredentialEntity {
+    name: string;
+}
+interface PublicKeyCredentialRpEntity extends PublicKeyCredentialEntity {
+    id?: string;
+}
+```
+
+</v-clicks>
+<v-clicks>
+
+- `id` has to same as the **full** domain
+- `name` is shown in the browser
+
+</v-clicks>
+
+---
+layout: full
+---
+
+<style>
+.slidev-code-wrapper {
+  --slidev-code-font-size: 9.5px;
+  --slidev-code-line-height: 11px;
+}
+</style>
+
+
+```ts
+await navigator.credentials.create({
+  publicKey: {
+    rp: { name: "Key Presentation" },
+    challenge: Uint8Array.from("F88FCB68CB5", c => c.charCodeAt(0)),
+    user: {
+        id: Uint8Array.from("UZSL85T9AFC", c => c.charCodeAt(0)),
+        name: "info@owddm.com",
+        displayName: "OWDDM",
+    },
+    pubKeyCredParams: [{alg: -7, type: "public-key"}],
+  },
+})
+```
+
+<v-click>
 
 ```ts
 PublicKeyCredential: {
@@ -197,8 +294,9 @@ PublicKeyCredential: {
     ]
   }
 }
-
 ```
+
+</v-click>
 
 ---
 layout: full
@@ -280,71 +378,6 @@ layout: full
 </div>
 
 ---
-layout: full
----
-
-```ts {monaco-run} {autorun:false}
-const credential = await navigator.credentials.create({
-    publicKey: {
-      rp: { name: "Github Pages", id: "martinheidegger.github.io" },
-      challenge: Uint8Array.from("UZSL85T9AFC", c => c.charCodeAt(0)),
-      user: {
-          id: Uint8Array.from("UZSL85T9AFC", c => c.charCodeAt(0)),
-          name: "info@owddm.com",
-          displayName: "OWDDM",
-      },
-      pubKeyCredParams: [{alg: -7, type: "public-key"}],
-  }
-});
-console.log(credential)
-```
-
----
-layout: center
----
-
-```ts
-  rp: { name: "Github Pages", id: "martinheidegger.github.io" },
-```
-
-<v-clicks>
-
-<div class="flex flex-row items-center gap-4 p-5 text-lg">
-  <ruby>Public<rt>everyone can know this</rt></ruby>
-  <ruby>Key<rt>binary data</rt></ruby>
-  <ruby>Credential<rt>to verify</rt></ruby>
-  <ruby>Rp <rt><em>of the</em> <abbr title="A Relying Party implementation typically consists of both some client-side script that invokes the Web Authentication API in the client, and a server-side component that executes the Relying Party operations and other application logic. Communication between the two components MUST use HTTPS or equivalent transport security, but is otherwise beyond the scope of this specification.">relying party</abbr></rt></ruby>
-  <ruby>Entity<rt>(you can pass this around)</rt></ruby>
-</div>
-
-</v-clicks>
-
-<v-clicks>
-
-```ts
-interface PublicKeyCredentialEntity {
-    name: string;
-}
-interface PublicKeyCredentialRpEntity extends PublicKeyCredentialEntity {
-    id?: string;
-}
-```
-
-</v-clicks>
-<v-clicks>
-
-- `id` has to same as the **full** domain
-- `name` is shown in the browser
-
-</v-clicks>
-
----
-layout: iframe
-url: https://martinheidegger.github.io/crypto-playground/index.html#/asymetric
----
-
-
----
 hideInToc: false
 ---
 
@@ -364,5 +397,3 @@ hideInToc: false
 ---
 
 #  Q&A: Are security keys a useful technology?
-
----
