@@ -196,7 +196,7 @@ layout: full
 const credential = await navigator.credentials.create({
     publicKey: {
       rp: { name: "Github Pages" },
-      challenge: Uint8Array.from("UZSL85T9AFC", c => c.charCodeAt(0)),
+      challenge: Uint8Array.from("F88FCB68CB5", c => c.charCodeAt(0)),
       user: {
           id: Uint8Array.from("UZSL85T9AFC", c => c.charCodeAt(0)),
           name: "info@owddm.com",
@@ -248,15 +248,30 @@ interface PublicKeyCredentialRpEntity extends PublicKeyCredentialEntity {
 </v-clicks>
 
 ---
-layout: full
+layout: center
 ---
 
-<style>
-.slidev-code-wrapper {
-  --slidev-code-font-size: 9.5px;
-  --slidev-code-line-height: 11px;
-}
-</style>
+```ts
+  challenge: Uint8Array.from("F88FCB68CB5", c => c.charCodeAt(0)),
+```
+
+<v-clicks>
+
+- aka. _NONCE_
+- (crypto graphically secure) Random Data
+- Generated on the server for every request.
+
+
+```ts
+  challenge: crypto.getRandomValues(new Uint8Array(11)),
+```
+
+</v-clicks>
+
+
+---
+layout: full
+---
 
 
 ```ts
