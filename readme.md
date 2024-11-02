@@ -157,7 +157,7 @@ navigator.credentials.create(...)
 </div>
 
 ---
-layout: full
+layout: center
 ---
 
 ```ts
@@ -261,57 +261,34 @@ layout: center
 - (crypto graphically secure) Random Data
 - Generated on the server for every request.
 
+</v-clicks>
+<v-click>
 
 ```ts
   challenge: crypto.getRandomValues(new Uint8Array(11)),
 ```
 
-</v-clicks>
-
-
----
-layout: full
----
-
-
-```ts
-await navigator.credentials.create({
-  publicKey: {
-    rp: { name: "Key Presentation" },
-    challenge: Uint8Array.from("F88FCB68CB5", c => c.charCodeAt(0)),
-    user: {
-        id: Uint8Array.from("UZSL85T9AFC", c => c.charCodeAt(0)),
-        name: "info@owddm.com",
-        displayName: "OWDDM",
-    },
-    pubKeyCredParams: [{alg: -7, type: "public-key"}],
-  },
-})
-```
-
-<v-click>
-
-```ts
-PublicKeyCredential: {
-  "type": "public-key"
-  "authenticatorAttachment": "cross-platform",
-  "clientExtensionResults": {},
-  "id": "R3z..(80)..zUQ",
-  "rawId": "R3z..(80)..zUQ",
-  "response": {
-    "attestationObject": "o2N..(296)..HjA",
-    "authenticatorData": "S8g..(256)..HjA",
-    "clientDataJSON": "eyJ..(156)..lfQ",
-    "publicKey": "MFk..(116)..HjA",
-    "publicKeyAlgorithm": -7,
-    "transports": [
-      "ble", "hybrid", "internal", "nfc", "usb"
-    ]
-  }
-}
-```
-
 </v-click>
+
+
+---
+layout: center
+---
+
+```ts
+user: {
+    id: Uint8Array.from("UZSL85T9AFC", c => c.charCodeAt(0)),
+    name: "info@owddm.com",
+    displayName: "OWDDM",
+},
+```
+
+<v-clicks>
+
+- `id` is the important bit, with the same key and ID we can log in!
+- `name` and `displayName` are decorative
+
+</v-clicks>
 
 ---
 layout: full
@@ -391,6 +368,51 @@ layout: full
 | 33    | AES-CCM-64-128-256                        | AES-CCM mode 256-bit key, 128-bit tag, 7-byte nonce   |
 
 </div>
+
+---
+layout: full
+---
+
+
+```ts
+await navigator.credentials.create({
+  publicKey: {
+    rp: { name: "Key Presentation" },
+    challenge: Uint8Array.from("F88FCB68CB5", c => c.charCodeAt(0)),
+    user: {
+        id: Uint8Array.from("UZSL85T9AFC", c => c.charCodeAt(0)),
+        name: "info@owddm.com",
+        displayName: "OWDDM",
+    },
+    pubKeyCredParams: [{alg: -7, type: "public-key"}],
+  },
+})
+```
+
+<v-click>
+
+```ts
+PublicKeyCredential: {
+  "type": "public-key"
+  "authenticatorAttachment": "cross-platform",
+  "clientExtensionResults": {},
+  "id": "R3z..(80)..zUQ",
+  "rawId": "R3z..(80)..zUQ",
+  "response": {
+    "attestationObject": "o2N..(296)..HjA",
+    "authenticatorData": "S8g..(256)..HjA",
+    "clientDataJSON": "eyJ..(156)..lfQ",
+    "publicKey": "MFk..(116)..HjA",
+    "publicKeyAlgorithm": -7,
+    "transports": [
+      "ble", "hybrid", "internal", "nfc", "usb"
+    ]
+  }
+}
+```
+
+</v-click>
+
 
 ---
 hideInToc: false
