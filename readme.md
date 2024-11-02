@@ -149,8 +149,8 @@ layout: full
 
 ```ts
 navigator.credentials.create(...)
-                {...}.get(...)
                 {...}.store(...)
+                {...}.get(...)
                 {...}.preventSilentAccess()
 ```
 
@@ -431,6 +431,28 @@ PublicKeyCredential: {
 
 ---
 
+```ts
+PublicKeyCredential: {
+  "type": "public-key"
+  "authenticatorAttachment": "cross-platform",
+  "clientExtensionResults": {},
+  "id": "R3z..(80)..zUQ",
+  "rawId": "R3z..(80)..zUQ",
+  "response": { /* ... */}
+}
+```
+
+<v-clicks>
+
+- `type` is fixed
+- `clientExtensionResults` - Pandorras box
+- `authenticatorAttachment` - `cross-platform` (NFC keys, Bluetooth) or `platform` (direct)
+- `id` (string) & `rawId` (ArrayBuffer) - ID for the credential the credential
+
+</v-clicks>
+
+---
+
 ### There are more options. 💪
 
 <v-clicks>
@@ -446,7 +468,28 @@ PublicKeyCredential: {
 
 </v-clicks>
 
+---
 
+## Browser API
+
+<div class="flex w-100p">
+
+```ts
+{...}.store(...)
+{...}.get(...)
+{...}.preventSilentAccess()
+```
+
+</div>
+
+---
+
+```ts
+{...}.store(credentials)
+```
+
+- Mostly for passwords and federated login.
+- Prevents repeat use of keys
 
 ---
 hideInToc: false
