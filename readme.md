@@ -429,6 +429,24 @@ PublicKeyCredential: {
 
 </v-click>
 
+---
+
+### There are more options. 💪
+
+<v-clicks>
+
+- `attestation` & `attestationFormats` - privacy setting
+- `authenticatorSelection` - Filter out unacceptable authenticators
+  - `userVerification` - How much distraction for user is okay
+- `excludeCredentials` - To avoid using the same key twice for the same account.
+- `extensions` - Pandorra's Box (hope comes last)
+- `timeout` - Suggested! timeout
+- `hints` - `security-key` | `client-device` | `hybrid` <br/>
+    What device do we prefer?
+
+</v-clicks>
+
+
 
 ---
 hideInToc: false
