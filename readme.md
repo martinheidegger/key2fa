@@ -81,6 +81,11 @@ hideInToc: false
 
 ---
 
+![](./images/lock.jpg){width=600px lazy}
+
+Secrets never leave the device
+---
+
 ## Crypto features
 
 - Attestion
@@ -124,10 +129,22 @@ hideInToc: false
 hideInToc: false
 ---
 
+![](./images/keychain-yk.jpg){width=400px lazy}
+
 - Like physical keys
-- Have pairs of keys (backups!)
-- IP(X) ratings
 - Keep them close to your body or safe at home
+
+---
+
+![](./images//lost-keys.jpg){width=400px lazy}
+
+- Have pairs of keys (backups!)
+
+---
+
+![](./images/yk-waterproof.jpg){width=400px lazy}
+
+- IP(X) ratings
 
 ---
 
@@ -418,19 +435,25 @@ PublicKeyCredential: {
 hideInToc: false
 ---
 
-#  What is the most common example for using security keys?
+#  What is the most common example for using security keys as a web developer?
 
-- Authentication
-  - SSH
-  - Git
-  - Physical Doors
+**Authentication!**
+<v-clicks>
 
+- SSH -> Connect to servers
+- Git -> Clone/Push/Pull
+- WebAuthN/Passkeys/FIDO2 -> Login
+
+</v-clicks>
 ---
 hideInToc: false
 ---
 
-#  How can I use security keys to improve my work?
+#  How can I improve the user experience for my own project?
 
+- Implement WebAuthN/Passkey support
+  - Allow **multiple** keys
+  - Keep revocation in mind
 ---
 
 #  Q&A: Are security keys a useful technology?
