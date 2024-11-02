@@ -291,6 +291,22 @@ user: {
 </v-clicks>
 
 ---
+layout: center
+---
+
+```ts
+pubKeyCredParams: [{alg: -7, type: "public-key"}],
+```
+
+<v-clicks>
+
+- A list of algorithms to that the server supports!
+- Can be a problem if the algorithm is not supported by the key
+- Preferrably two valid should be used
+
+</v-clicks>
+
+---
 layout: full
 ---
 
