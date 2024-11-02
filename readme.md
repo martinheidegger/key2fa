@@ -538,6 +538,27 @@ PublicKeyCredential: {
 - Asks the user less often
 
 ---
+
+```ts
+{...}.get({
+  "mediation": "...", // silent!
+  // ...various other passkey types
+  "publicKey": {
+    "id": "...",
+    "transports": ["...", "..."],
+  },
+  "challenge": Uint8Array.from("F88FCB68CB5", c => c.charCodeAt(0)),
+  "hints": ["...", "..."],
+  "rpId": "...",
+  "timeout": 1234,
+  "userVerification": [ "required", "preferred", "discouraged" ]
+})
+```
+
+- This is the most important API - who'da thunk
+- Resolves to access a stored credential privately
+
+---
 hideInToc: false
 ---
 
