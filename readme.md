@@ -444,10 +444,39 @@ PublicKeyCredential: {
 
 <v-clicks>
 
-- `type` is fixed
+- `type` - always _"publicKey"_
 - `clientExtensionResults` - Pandorras box
 - `authenticatorAttachment` - `cross-platform` (NFC keys, Bluetooth) or `platform` (direct)
 - `id` (string) & `rawId` (ArrayBuffer) - ID for the credential the credential
+
+</v-clicks>
+
+---
+
+```ts
+PublicKeyCredential: {
+  /* ... */
+  "response": {
+    "attestationObject": "o2N..(296)..HjA",
+    "authenticatorData": "S8g..(256)..HjA",
+    "clientDataJSON": "eyJ..(156)..lfQ",
+    "publicKey": "MFk..(116)..HjA",
+    "publicKeyAlgorithm": -7,
+    "transports": [
+      "ble", "hybrid", "internal", "nfc", "usb"
+    ]
+  }
+}
+```
+
+<v-clicks>
+
+- `attestationObject` - Information about the device - CBOR
+- `authenticatorData` - Log of what happened during authentication in binary form.
+- `clientDataJSON` - Input passed in to `create(...)`
+- `publicKey` & `publicKeyAlgorithm` - Only 1 (!) of the requested algorithms
+- `transports` - What transports can be used for the key
+    Good to make icons!
 
 </v-clicks>
 
