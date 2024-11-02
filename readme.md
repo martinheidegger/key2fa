@@ -166,8 +166,8 @@ layout: full
 
 ```ts
 navigator.credentials.create(...)
-                {...}.get(...)
                 {...}.store(...)
+                {...}.get(...)
                 {...}.preventSilentAccess()
 ```
 
@@ -308,6 +308,22 @@ user: {
 </v-clicks>
 
 ---
+layout: center
+---
+
+```ts
+pubKeyCredParams: [{alg: -7, type: "public-key"}],
+```
+
+<v-clicks>
+
+- A list of algorithms to that the server supports!
+- Can be a problem if the algorithm is not supported by the key
+- Preferrably two valid should be used
+
+</v-clicks>
+
+---
 layout: full
 ---
 
@@ -430,6 +446,96 @@ PublicKeyCredential: {
 
 </v-click>
 
+---
+
+```ts
+PublicKeyCredential: {
+  "type": "public-key"
+  "authenticatorAttachment": "cross-platform",
+  "clientExtensionResults": {},
+  "id": "R3z..(80)..zUQ",
+  "rawId": "R3z..(80)..zUQ",
+  "response": { /* ... */}
+}
+```
+
+<v-clicks>
+
+- `type` - always _"publicKey"_
+- `clientExtensionResults` - Pandorras box
+- `authenticatorAttachment` - `cross-platform` (NFC keys, Bluetooth) or `platform` (direct)
+- `id` (string) & `rawId` (ArrayBuffer) - ID for the credential the credential
+
+</v-clicks>
+
+---
+
+```ts
+PublicKeyCredential: {
+  /* ... */
+  "response": {
+    "attestationObject": "o2N..(296)..HjA",
+    "authenticatorData": "S8g..(256)..HjA",
+    "clientDataJSON": "eyJ..(156)..lfQ",
+    "publicKey": "MFk..(116)..HjA",
+    "publicKeyAlgorithm": -7,
+    "transports": [
+      "ble", "hybrid", "internal", "nfc", "usb"
+    ]
+  }
+}
+```
+
+<v-clicks>
+
+- `attestationObject` - Information about the device - CBOR
+- `authenticatorData` - Log of what happened during authentication in binary form.
+- `clientDataJSON` - Input passed in to `create(...)`
+- `publicKey` & `publicKeyAlgorithm` - Only 1 (!) of the requested algorithms
+- `transports` - What transports can be used for the key
+    Good to make icons!
+
+</v-clicks>
+
+---
+
+### There are more options. 💪
+
+<v-clicks>
+
+- `attestation` & `attestationFormats` - privacy setting
+- `authenticatorSelection` - Filter out unacceptable authenticators
+  - `userVerification` - How much distraction for user is okay
+- `excludeCredentials` - To avoid using the same key twice for the same account.
+- `extensions` - Pandorra's Box (hope comes last)
+- `timeout` - Suggested! timeout
+- `hints` - `security-key` | `client-device` | `hybrid` <br/>
+    What device do we prefer?
+
+</v-clicks>
+
+---
+
+## Browser API
+
+<div class="flex w-100p">
+
+```ts
+{...}.store(...)
+{...}.get(...)
+{...}.preventSilentAccess()
+```
+
+</div>
+
+---
+
+```ts
+{...}.store(credentials)
+```
+
+- Mostly for passwords and federated login.
+- Prevents repeat use of keys
 
 ---
 hideInToc: false
