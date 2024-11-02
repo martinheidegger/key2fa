@@ -535,7 +535,7 @@ PublicKeyCredential: {
 ```
 
 - Mostly for passwords and federated login.
-- Prevents repeat use of keys
+- Asks the user less often
 
 ---
 hideInToc: false
